@@ -1,6 +1,7 @@
 body {
-	font-family: Helvetica, Arial, _sans;
-	font-size: 14px;
+	font-family: 'Roboto', Helvetica, Arial, _sans;
+	font-size: 16px;
+	font-weight: 300;
 }
 
 header {
@@ -82,6 +83,7 @@ footer {
 			border-bottom: 1px solid rgb(72,130,190);
 			border-top: 1px solid rgb(72,130,190);
 			font-size: 1.5em;
+			font-weight: 400;
 			margin: 0 0 .5em 0;
 			padding: .5em 0em;
 			text-transform: uppercase;

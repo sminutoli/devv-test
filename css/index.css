@@ -1,0 +1,88 @@
+body {
+	font-family: Helvetica, Arial, _sans;
+	font-size: 14px;
+}
+
+header {
+	border-bottom: 1px solid rgb(72,130,190);
+	height: 110px; /* from psd */
+	margin-bottom: 2em;
+}
+	header img {
+		margin: 2.5em 2em;
+	}
+
+
+section {
+	min-height: 300px;
+}
+
+.search-form {
+	background: rgb(248,248,248);
+	border: 1px solid rgb(178,178,178);
+	border-radius: 15px;
+	margin: auto;
+	padding: 15px 90px;
+	width: 553px; /* from psd measures */
+}
+
+	.search-form input[type=search] {
+		background: url(../assets/search.png) no-repeat 0% 50%;
+		border: none;
+		border-bottom: 3px solid rgb(72,130,190);
+		color: rgb(72,130,190);
+		font-size: 1.5em;
+		padding: .5em .5em .5em 1.5em;
+		width: 100%;
+	}
+	.search-form input[type=search]:focus{
+	    outline: 0;
+	}
+
+	/* https://css-tricks.com/snippets/css/style-placeholder-text */
+	.search-form input[type=search]::-webkit-input-placeholder {
+	   color: rgb(72,130,190);
+	}
+
+	.search-form input[type=search]:-moz-placeholder { /* Firefox 18- */
+	   color: rgb(72,130,190);  
+	}
+
+	.search-form input[type=search]::-moz-placeholder {  /* Firefox 19+ */
+	   color: rgb(72,130,190);  
+	}
+
+	.search-form input[type=search]:-ms-input-placeholder {  
+	   color: rgb(72,130,190);  
+	}
+
+	.search-form .search-results {
+		background: rgb(227,227,227);
+	}
+
+footer {
+	display: table;
+	margin: auto;	
+	width: 98%;
+}
+
+	footer dl {
+		color: rgb(108,108,108);
+		display: inline-block;
+		vertical-align: top;
+		width: 25%;
+	}
+		
+		footer dl dd {
+			margin: 0;
+			padding: .2em 0em;
+		}
+
+		footer dl dt {
+			border-bottom: 1px solid rgb(72,130,190);
+			border-top: 1px solid rgb(72,130,190);
+			font-size: 1.5em;
+			margin: 0 0 .5em 0;
+			padding: .5em 0em;
+			text-transform: uppercase;
+		}

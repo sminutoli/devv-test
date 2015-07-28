@@ -20,12 +20,7 @@
 			byCreator: false
 		};
 		me.collection = MyDataProvider.getAll();
-		me.getMode = getMode;
 		/* end expose */
-
-		function getMode(){
-			return me.strictSearch ? 'AND' : 'OR';
-		}
 
 	}
 

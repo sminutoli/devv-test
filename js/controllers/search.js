@@ -11,9 +11,21 @@
 	function SearchCtrl(MyDataProvider){
 
 		var me = this; // reference to this in order to keep context
-		me.collection = MyDataProvider.getAll();
+		
+		/* exposes to view */
 		me.theSearch = '';
-		me.strictSearch = false;
+		me.searchOptions = {
+			strict: false,
+			byType: false,
+			byCreator: false
+		};
+		me.collection = MyDataProvider.getAll();
+		me.getMode = getMode;
+		/* end expose */
+
+		function getMode(){
+			return me.strictSearch ? 'AND' : 'OR';
+		}
 
 	}
 

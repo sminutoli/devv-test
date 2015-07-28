@@ -21,10 +21,29 @@
 					type="search" 
 					placeholder="Search..." 
 					ng-model="ctrl.theSearch">
+				<div>
+					<input 
+						id="useStrict"
+						type="checkbox" 
+						ng-model="ctrl.searchOptions.strict"> 
+					<label for="useStrict">Use strict search</label>
+
+					<input 
+						id="byType"
+						type="checkbox" 
+						ng-model="ctrl.searchOptions.byType"> 
+					<label for="byType">byType</label>
+
+					<input 
+						id="byCreator"
+						type="checkbox" 
+						ng-model="ctrl.searchOptions.byCreator"> 
+					<label for="byCreator">byCreator</label>
+				</div>
 				<div class="search-results">
 					<article 
 						class="search-results__item" 
-						ng-repeat="item in ctrl.collection | customSearch:ctrl.theSearch:'AND'">
+						ng-repeat="item in ctrl.collection | customSearch:ctrl.theSearch:ctrl.searchOptions">
 						<h2 class="search-results__item__name">{{ item.Name }}</h2>
 						<h5 class="search-results__item__type">Type: {{ item.Type }}</h5>
 						<h5 class="search-results__item__creator">Designed By: {{ item['Designed by'] }}</h5>

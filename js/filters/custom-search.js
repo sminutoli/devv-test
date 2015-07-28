@@ -8,10 +8,13 @@
 		.filter('customSearch', customSearch);
 
 	function customSearch(){
-		return function (input, searchText, AND_OR) {
+		return function (input, searchText, options) {
 	        // I don´t like the "multiple var assignment approach"
 
 	        var returnArray = [];
+
+	        if( searchText === '' ) return returnArray;
+
 	        // Split on single or multi space
 	        var splitext = searchText.toLowerCase().split(/\s+/);
 	        // Build Regexp with Logical AND using "look ahead assertions"
@@ -20,12 +23,14 @@
 	        var regexp_or = searchText.toLowerCase().replace(/\s+/g, "|");
 	        
 	        // Compile the regular expression
-	        var re = new RegExp((AND_OR == "AND") ? regexp_and : regexp_or, "i");
+	        var re = new RegExp((options.strict) ? regexp_and : regexp_or, "i");
 
 	        for (var x = 0; x < input.length; x++) {
 	            
 	            var item = input[x];
-	            var concatValues = item.Name+' '+item.Type+' '+item['Designed by'];
+	            var concatValues = item.Name;
+	            if( options.byType ) concatValues +=' '+item.Type;
+	            if( options.byCreator ) concatValues +=' '+item['Designed by'];
 
 	            if (re.test(concatValues)) returnArray.push(item);
 	        }

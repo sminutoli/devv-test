@@ -33,6 +33,7 @@ section {
 		border-bottom: 3px solid rgb(72,130,190);
 		color: rgb(72,130,190);
 		font-size: 1.5em;
+		margin-bottom: .2em;
 		padding: .5em .5em .5em 1.5em;
 		width: 100%;
 	}
@@ -55,6 +56,10 @@ section {
 
 	.search-form input[type=search]:-ms-input-placeholder {  
 	   color: rgb(72,130,190);  
+	}
+
+	.search-form label {
+		margin-right: .5em;
 	}
 
 	/**** SEARCH RESULTS *******/

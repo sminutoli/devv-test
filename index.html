@@ -43,10 +43,11 @@
 				<div class="search-results">
 					<article 
 						class="search-results__item" 
-						ng-repeat="item in ctrl.collection | customSearch:ctrl.theSearch:ctrl.searchOptions">
+						ng-repeat="item in ctrl.collection | customSearch:ctrl.theSearch:ctrl.searchOptions | orderBy: ['-weight','Name'] ">
 						<h2 class="search-results__item__name">{{ item.Name }}</h2>
 						<h5 class="search-results__item__type">Type: {{ item.Type }}</h5>
 						<h5 class="search-results__item__creator">Designed By: {{ item['Designed by'] }}</h5>
+						<h5 class="search-results__item__weight">Weight: {{ item.weight }}</h5>
 					</article>
 				</div>
 			</form>

@@ -32,7 +32,7 @@
 	        }
 	        
 	        // Compile the regular expression
-	        var re = new RegExp((options.strict) ? regexp_and : regexp_or, 'i');
+	        var re = new RegExp((options.strict) ? regexp_and : regexp_or, 'gi');
 
 	        for (var x = 0; x < input.length; x++) {
 	            
@@ -41,7 +41,12 @@
 	            if( options.byType ) concatValues +=' '+item.Type;
 	            if( options.byCreator ) concatValues +=' '+item['Designed by'];
 
-	            if (re.test(concatValues)) returnArray.push(item);
+	            var regexResult = re.test(concatValues);
+	            if ( regexResult ){
+	            	item.weight = concatValues.match(re).length;
+	            	console.log( concatValues, searchText, item.weight);
+	            	returnArray.push(item);	
+	            } 
 	        }
 
 	        // View what the 2 regular expression look like

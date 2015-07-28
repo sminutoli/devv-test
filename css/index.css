@@ -76,7 +76,9 @@ section {
 
 	.search-results__item__name,
 	.search-results__item__type,
-	.search-results__item__creator {
+	.search-results__item__creator,
+	.search-results__item__weight {
+
 		margin: 0px 0px .2em 0px;
 	}
 

@@ -18,12 +18,21 @@
 	        // Split on single or multi space
 	        var splitext = searchText.toLowerCase().split(/\s+/);
 	        // Build Regexp with Logical AND using "look ahead assertions"
-	        var regexp_and = "(?=.*" + splitext.join(")(?=.*") + ")";
+	        var regexp_and = '^(?=.*' + splitext.join(')(?=.*') + ')';
+	        regexp_and = regexp_and.replace(/\(\?\=\.\*\-/g, '(?!.*');
+
 	        // Build Regexp with logicial OR
-	        var regexp_or = searchText.toLowerCase().replace(/\s+/g, "|");
+	        var regexp_or = searchText
+	        					.toLowerCase()
+	        					.replace(/\s+/g, '|')
+	        					.replace(/-\w*/, getNegativeOr );
+
+	        function getNegativeOr(text){
+	        	return '^(?!.*'+ text.substring(1) +')';
+	        }
 	        
 	        // Compile the regular expression
-	        var re = new RegExp((options.strict) ? regexp_and : regexp_or, "i");
+	        var re = new RegExp((options.strict) ? regexp_and : regexp_or, 'i');
 
 	        for (var x = 0; x < input.length; x++) {
 	            

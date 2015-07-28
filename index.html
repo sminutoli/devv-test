@@ -1,58 +1,78 @@
 <!DOCTYPE html>
-<head ng-app="devvit">
-	<meta charset="utf-8">
-	<title>Devvit Test</title>
-	<meta name="author" content="Sergio Minutoli - sergio.minutoli@gmail.com">
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
-	<link rel="stylesheet" type="text/css" href="css/index.css">
-</head>
-<body>
+<html ng-app="devvit">
+	<head>
+		<meta charset="utf-8">
+		<title>Devvit Test</title>
+		<meta name="author" content="Sergio Minutoli - sergio.minutoli@gmail.com">
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+	</head>
+	<body>
 
-	<header>
-		<img src="assets/logo.png" alt="Devv Developing Visions">
-	</header>
+		<header>
+			<img src="assets/logo.png" alt="Devv Developing Visions">
+		</header>
 
-	<section>
+		<section ng-controller="SearchCtrl as ctrl">
 
-		<form class="search-form">
-			<input type="search" placeholder="Search...">
-			<div class="search-results">
+			<form class="search-form">
+				<input 
+					type="search" 
+					placeholder="Search..." 
+					ng-model="ctrl.theSearch">
+				<div class="search-results">
+					<article 
+						class="search-results__item" 
+						ng-repeat="item in ctrl.collection | customSearch:ctrl.theSearch:'AND'">
+						<h2 class="search-results__item__name">{{ item.Name }}</h2>
+						<h5 class="search-results__item__type">Type: {{ item.Type }}</h5>
+						<h5 class="search-results__item__creator">Designed By: {{ item['Designed by'] }}</h5>
+					</article>
+				</div>
+			</form>
 
-			</div>
-		</form>
+		</section>
+		
+		<footer>
 
-	</section>
-	
-	<footer>
+			<dl>
+				<dt>Devv</dt>
+				<dd>What is it like?</dd>
+				<dd>Contact us</dd>
+			</dl>
 
-		<dl>
-			<dt>Devv</dt>
-			<dd>What is it like?</dd>
-			<dd>Contact us</dd>
-		</dl>
+			<dl>
+				<dt>Consulting</dt>
+				<dd>Services</dd>
+				<dd>Carreer</dd>
+				<dd>Work for us</dd>
+			</dl>
 
-		<dl>
-			<dt>Consulting</dt>
-			<dd>Services</dd>
-			<dd>Carreer</dd>
-			<dd>Work for us</dd>
-		</dl>
+			<dl>
+				<dt>Search</dt>
+				<dd>Headhunting</dd>
+				<dd>Relocation package for Developers</dd>
+			</dl>
 
-		<dl>
-			<dt>Search</dt>
-			<dd>Headhunting</dd>
-			<dd>Relocation package for Developers</dd>
-		</dl>
+			<dl>
+				<dt>Network</dt>
+				<dd>Partners</dd>
+				<dd>Devv Family</dd>
+			</dl>
 
-		<dl>
-			<dt>Network</dt>
-			<dd>Partners</dd>
-			<dd>Devv Family</dd>
-		</dl>
+		</footer>
 
-	</footer>
+		<!-- start vendor -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+		<!-- end vendor -->
 
+		<!-- we can use some node.js task like wiredep here! -->
+		<script src="js/app.js"></script>
+		<script src="js/controllers/search.js"></script>
+		<script src="js/filters/custom-search.js"></script>
+		<script src="js/services/data.js"></script>
+		<!-- end sourcecode -->
 
-</body>
+	</body>
 </html>

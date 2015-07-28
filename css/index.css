@@ -57,8 +57,22 @@ section {
 	   color: rgb(72,130,190);  
 	}
 
+	/**** SEARCH RESULTS *******/
+
 	.search-form .search-results {
 		background: rgb(227,227,227);
+	}
+
+	.search-results .search-results__item {
+		border-bottom: 1px solid gray;
+		margin: .5em 0em;
+		padding: 1em;
+	}
+
+	.search-results__item__name,
+	.search-results__item__type,
+	.search-results__item__creator {
+		margin: 0px 0px .2em 0px;
 	}
 
 footer {

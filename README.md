@@ -30,6 +30,8 @@ http://www.w3schools.com/jsref/jsref_replace.asp
 ## AngularJS
 I´ve chosen angularJS because of the high-dynamic searching based on pure JSON and all the magic stuff inside filters, orderby, etc.
 
+I´ve decided not to split the html in partials/views, because of the "one and only view" excercise.
+
 ## GIT support
 I´ve documented all the process in several commits on this public repo
 https://github.com/sminutoli/devv-test.git
